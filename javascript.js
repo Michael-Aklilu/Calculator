@@ -126,3 +126,8 @@ row.appendChild(division);
 let clear = document.createElement("button");
 clear.textContent = "AC";
 row.appendChild(clear);
+
+let equals = document.createElement("button");
+equals.textContent = "Calculate";
+row.appendChild(equals);
+equals.id = "calculate";
