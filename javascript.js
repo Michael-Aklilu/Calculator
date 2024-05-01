@@ -29,7 +29,9 @@ function divide(...args) {
     }
     return div;
 }
-let num1, num2, oper;
+
+let num2 = '';
+let oper = '';
 
 function operate(oper, num1, num2) {
 
@@ -61,50 +63,60 @@ let container = document.createElement("div");
 container.id = "container";
 body.appendChild(container);
 
-let row  = document.createElement("div");
+let row = document.createElement("div");
 row.id = "row";
 container.appendChild(row);
 
 
 let zero = document.createElement("button");
 zero.textContent = "0";
+zero.classList.add("Number");
 row.appendChild(zero);
 
 let one = document.createElement("button");
 one.textContent = "1";
+one.classList.add("Number");
 row.appendChild(one);
 
 let two = document.createElement("button");
 two.textContent = "2";
+two.classList.add("Number");
 row.appendChild(two);
 
 let three = document.createElement("button");
 three.textContent = "3";
+three.classList.add("Number");
 row.appendChild(three);
 
 let four = document.createElement("button");
 four.textContent = "4";
+four.classList.add("Number");
 row.appendChild(four);
 
 
 let five = document.createElement("button");
 five.textContent = "5";
+five.classList.add("Number");
 row.appendChild(five);
 
 let six = document.createElement("button");
 six.textContent = "6";
+six.classList.add("Number");
 row.appendChild(six);
 
 let seven = document.createElement("button");
 seven.textContent = "7";
+seven.classList.add("Number");
 row.appendChild(seven);
 
 let eight = document.createElement("button");
 eight.textContent = "8";
+eight.classList.add("Number");
 row.appendChild(eight);
 
 let nine = document.createElement("button");
 nine.textContent = "9";
+nine.classList.add("Number");
 row.appendChild(nine);
 
 let addition = document.createElement("button");
@@ -139,8 +151,28 @@ equals.id = "calculate";
 
 let choices = document.querySelectorAll("button");
 choices.forEach(choice => {
-     choice.addEventListener('click', event => {
-          if(event.target.textContent !== 'AC' && event.target.textContent !== 'Calculate')
-               display.textContent += event.target.textContent;
-     });
+    choice.addEventListener('click', event => {
+        let num1 = [];
+
+       if(event.target.classList.contains('Number')){
+    
+                 display.textContent += event.target.textContent;
+                 num1 += event.target.textContent;
+       }
+       console.log(num1);
+       
+        /*if (event.target.textContent !== 'AC' && event.target.textContent !== 'Calculate')
+            display.textContent += event.target.textContent;*/
+
+        
+    });
+
 });
+
+
+/*let firstNumber = document.querySelectorAll("button");
+firstNumber.forEach(num => {
+    num.addEventListener('click', event => {
+            num1 += event.target.textContent;
+    });
+});*/
