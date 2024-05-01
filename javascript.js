@@ -29,5 +29,26 @@ function divide(...args) {
     }
     return div;
 }
+let num1, num2, oper;
 
-let num1,num2,oper;
+function operate(oper, num1, num2) {
+
+    switch (oper) {
+        case '+':
+            add(num1, num2);
+            break;
+
+        case '-':
+            subtract(num1, num2);
+            break;
+
+        case '*':
+            multiply(num1, num2);
+            break;
+
+        case '/':
+            divide(num1 / num2);
+            break;
+    }
+
+}
