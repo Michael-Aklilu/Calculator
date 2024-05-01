@@ -127,7 +127,20 @@ let clear = document.createElement("button");
 clear.textContent = "AC";
 row.appendChild(clear);
 
+let display = document.createElement("div");
+display.id = "display";
+row.appendChild(display);
+
+
 let equals = document.createElement("button");
 equals.textContent = "Calculate";
 row.appendChild(equals);
 equals.id = "calculate";
+
+let choices = document.querySelectorAll("button");
+choices.forEach(choice => {
+     choice.addEventListener('click', event => {
+          if(event.target.textContent !== 'AC' && event.target.textContent !== 'Calculate')
+               display.textContent += event.target.textContent;
+     });
+});
