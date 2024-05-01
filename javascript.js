@@ -53,18 +53,76 @@ function operate(oper, num1, num2) {
 
 }
 let body = document.querySelector("body");
+let header = document.createElement("h1");
+header.textContent = "CALCULATOR";
+body.appendChild(header);
+
 let container = document.createElement("div");
 container.id = "container";
 body.appendChild(container);
 
-let firstRow  = document.createElement("div");
-firstRow.id = "firstRow";
-container.appendChild(firstRow);
+let row  = document.createElement("div");
+row.id = "row";
+container.appendChild(row);
 
-let secondRow = document.createElement("div");
-secondRow.id = "secondRow";
-container.appendChild(secondRow);
 
-let thirdRow = document.createElement("div");
-thirdRow.id = "thirdRow";
-container.appendChild(thirdRow);
+let zero = document.createElement("button");
+zero.textContent = "0";
+row.appendChild(zero);
+
+let one = document.createElement("button");
+one.textContent = "1";
+row.appendChild(one);
+
+let two = document.createElement("button");
+two.textContent = "2";
+row.appendChild(two);
+
+let three = document.createElement("button");
+three.textContent = "3";
+row.appendChild(three);
+
+let four = document.createElement("button");
+four.textContent = "4";
+row.appendChild(four);
+
+
+let five = document.createElement("button");
+five.textContent = "5";
+row.appendChild(five);
+
+let six = document.createElement("button");
+six.textContent = "6";
+row.appendChild(six);
+
+let seven = document.createElement("button");
+seven.textContent = "7";
+row.appendChild(seven);
+
+let eight = document.createElement("button");
+eight.textContent = "8";
+row.appendChild(eight);
+
+let nine = document.createElement("button");
+nine.textContent = "9";
+row.appendChild(nine);
+
+let addition = document.createElement("button");
+addition.textContent = "+";
+row.appendChild(addition);
+
+let subtraction = document.createElement("button");
+subtraction.textContent = "-";
+row.appendChild(subtraction);
+
+let multiplication = document.createElement("button");
+multiplication.textContent = "*";
+row.appendChild(multiplication);
+
+let division = document.createElement("button");
+division.textContent = "/";
+row.appendChild(division);
+
+let clear = document.createElement("button");
+clear.textContent = "AC";
+row.appendChild(clear);
