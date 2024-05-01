@@ -19,13 +19,15 @@ function multiply(...args) {
     }
     return prod;
 }
-function divide(...args){
+function divide(...args) {
     let div = args[0];
-    for(let i = 1; i<args.length; i++){
-        if(args[i] !== 0)
+    for (let i = 1; i < args.length; i++) {
+        if (args[i] !== 0)
             div /= args[i];
         else
             return "Can't divide by zero";
     }
     return div;
 }
+
+let num1,num2,oper;
