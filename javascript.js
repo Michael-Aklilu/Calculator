@@ -52,3 +52,19 @@ function operate(oper, num1, num2) {
     }
 
 }
+let body = document.querySelector("body");
+let container = document.createElement("div");
+container.id = "container";
+body.appendChild(container);
+
+let firstRow  = document.createElement("div");
+firstRow.id = "firstRow";
+container.appendChild(firstRow);
+
+let secondRow = document.createElement("div");
+secondRow.id = "secondRow";
+container.appendChild(secondRow);
+
+let thirdRow = document.createElement("div");
+thirdRow.id = "thirdRow";
+container.appendChild(thirdRow);
