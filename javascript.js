@@ -29,7 +29,7 @@ function divide(...args) {
     }
     return div;
 }
-
+let num1 = '';
 let num2 = '';
 let oper = '';
 
@@ -121,18 +121,22 @@ row.appendChild(nine);
 
 let addition = document.createElement("button");
 addition.textContent = "+";
+addition.classList.add("Operator");
 row.appendChild(addition);
 
 let subtraction = document.createElement("button");
 subtraction.textContent = "-";
+subtraction.classList.add("Operator");
 row.appendChild(subtraction);
 
 let multiplication = document.createElement("button");
 multiplication.textContent = "*";
+multiplication.classList.add("Operator");
 row.appendChild(multiplication);
 
 let division = document.createElement("button");
 division.textContent = "/";
+division.classList.add("Operator");
 row.appendChild(division);
 
 let clear = document.createElement("button");
@@ -149,30 +153,34 @@ equals.textContent = "Calculate";
 row.appendChild(equals);
 equals.id = "calculate";
 
-let choices = document.querySelectorAll("button");
-choices.forEach(choice => {
-    choice.addEventListener('click', event => {
-        let num1 = [];
+function input() {
+    let choices = document.querySelectorAll("button");
+    choices.forEach(choice => {
+        choice.addEventListener('click', event => {
 
-       if(event.target.classList.contains('Number')){
-    
-                 display.textContent += event.target.textContent;
-                 num1 += event.target.textContent;
-       }
-       console.log(num1);
-       
-        /*if (event.target.textContent !== 'AC' && event.target.textContent !== 'Calculate')
-            display.textContent += event.target.textContent;*/
+            if (event.target.classList.contains('Number') && oper === '') {
+                display.textContent += event.target.textContent;
+                num1 += event.target.textContent;
+                console.log(num1);
+            }
+            else if (event.target.classList.contains('Number') && oper != '') {
+                display.textContent += event.target.textContent;
+                num2 += event.target.textContent;
+                console.log(num2);
 
-        
+            }
+
+        });
     });
 
-});
+        let operatorChoices = document.querySelectorAll(".Operator");
+        operatorChoices.forEach(operator => {
+            operator.addEventListener('click', event => {
+                oper = event.target.textContent;
+                console.log(oper);
+            });
+        });
 
+ };
 
-/*let firstNumber = document.querySelectorAll("button");
-firstNumber.forEach(num => {
-    num.addEventListener('click', event => {
-            num1 += event.target.textContent;
-    });
-});*/
+input();
