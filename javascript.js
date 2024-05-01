@@ -7,7 +7,7 @@ function add(...args) {
 }
 function subtract(...args) {
     let diff = args[0];
-    for (let i = 1; i < length.args; i++) {
+    for (let i = 1; i < args.length; i++) {
         diff -= args[i];
     }
     return diff;
@@ -18,4 +18,14 @@ function multiply(...args) {
         prod *= num;
     }
     return prod;
+}
+function divide(...args){
+    let div = args[0];
+    for(let i = 1; i<args.length; i++){
+        if(args[i] !== 0)
+            div /= args[i];
+        else
+            return "Can't divide by zero";
+    }
+    return div;
 }
