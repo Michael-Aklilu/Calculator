@@ -34,19 +34,19 @@ function operate(oper, num1, num2) {
 
     switch (oper) {
         case '+':
-            add(num1, num2);
+            display.textContent = add(num1, num2);
             break;
 
         case '-':
-            subtract(num1, num2);
+            display.textContent =  subtract(num1, num2);
             break;
 
         case '*':
-            multiply(num1, num2);
+            display.textContent = multiply(num1, num2);
             break;
 
         case '/':
-            divide(num1 / num2);
+            display.textContent = divide(num1 / num2);
             break;
     }
 
@@ -163,27 +163,31 @@ function input() {
                 display.textContent += event.target.textContent;
                 num1 += event.target.textContent;
                 num1 = Number(num1);
-                console.log(num1);
             }
             else if (event.target.classList.contains('Number') && oper != '') {
                 display.textContent += event.target.textContent;
                 num2 += event.target.textContent;
                 num2 = Number(num2);
-                console.log(typeof(num2));
-
             }
-
         });
     });
 
-        let operatorChoices = document.querySelectorAll(".Operator");
-        operatorChoices.forEach(operator => {
-            operator.addEventListener('click', event => {
-                oper = event.target.textContent;
-                console.log(oper);
-            });
+    let operatorChoices = document.querySelectorAll(".Operator");
+    operatorChoices.forEach(operator => {
+        operator.addEventListener('click', event => {
+            oper = event.target.textContent;
+        });
+    });
+
+    let calculate = document.querySelectorAll("button");
+    calculate.forEach(option => {
+        option.addEventListener('click', event => {
+            if (event.target.textContent === 'Calculate'){
+                operate(oper, num1, num2);
+            }
         });
 
- };
+    });
+};
 
 input();
