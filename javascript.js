@@ -30,23 +30,23 @@ function divide(...args) {
     return div;
 }
 
-function operate(oper, num1, num2) {
+function operate(oper, ...nums) {
 
     switch (oper) {
         case '+':
-            display.textContent = add(num1, num2);
+            display.textContent = add(...nums);
             break;
 
         case '-':
-            display.textContent =  subtract(num1, num2);
+            display.textContent = subtract(...nums);
             break;
 
         case '*':
-            display.textContent = multiply(num1, num2);
+            display.textContent = multiply(...nums);
             break;
 
         case '/':
-            display.textContent = divide(num1 / num2);
+            display.textContent = divide(...nums);
             break;
     }
 
@@ -154,40 +154,50 @@ let num1 = '';
 let num2 = '';
 let oper = '';
 
-function input() {
-    let choices = document.querySelectorAll("button");
-    choices.forEach(choice => {
-        choice.addEventListener('click', event => {
+let choices = document.querySelectorAll("button");
+choices.forEach(choice => {
+    choice.addEventListener('click', event => {
 
-            if (event.target.classList.contains('Number') && oper === '') {
-                display.textContent += event.target.textContent;
-                num1 += event.target.textContent;
-                num1 = Number(num1);
-            }
-            else if (event.target.classList.contains('Number') && oper != '') {
-                display.textContent += event.target.textContent;
-                num2 += event.target.textContent;
-                num2 = Number(num2);
-            }
-        });
+        if (event.target.classList.contains('Number') && oper === '') {
+            display.textContent += event.target.textContent;
+            num1 += display.textContent;
+            num1 = parseInt(display.textContent);
+        }
+        else if (event.target.classList.contains('Number') && oper != '') {
+            display.textContent += event.target.textContent;
+            num2 += event.target.textContent;
+            num2 = Number(num2);
+        }
+        else if (event.target.classList.contains('Operator'))
+            display.textContent += event.target.textContent;
+
+        else if (event.target.textContent === 'AC') {
+            display.textContent = '';
+            num1 = 0;
+            num2 = 0;
+            oper = '';
+        }
     });
+});
 
-    let operatorChoices = document.querySelectorAll(".Operator");
-    operatorChoices.forEach(operator => {
-        operator.addEventListener('click', event => {
+let operatorChoices = document.querySelectorAll(".Operator");
+operatorChoices.forEach(operator => {
+    operator.addEventListener('click', event => {
+        if (num1 != '')
             oper = event.target.textContent;
-        });
+    });
+});
+
+let calculate = document.querySelectorAll("button");
+calculate.forEach(option => {
+    option.addEventListener('click', event => {
+        if (event.target.textContent === 'Calculate') {
+            operate(oper, num1, num2);
+            num1 = Number(display.textContent);
+            num2 = 0;
+            oper = '';
+        }
     });
 
-    let calculate = document.querySelectorAll("button");
-    calculate.forEach(option => {
-        option.addEventListener('click', event => {
-            if (event.target.textContent === 'Calculate'){
-                operate(oper, num1, num2);
-            }
-        });
+});
 
-    });
-};
-
-input();
