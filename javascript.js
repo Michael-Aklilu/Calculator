@@ -29,9 +29,6 @@ function divide(...args) {
     }
     return div;
 }
-let num1 = '';
-let num2 = '';
-let oper = '';
 
 function operate(oper, num1, num2) {
 
@@ -153,6 +150,10 @@ equals.textContent = "Calculate";
 row.appendChild(equals);
 equals.id = "calculate";
 
+let num1 = '';
+let num2 = '';
+let oper = '';
+
 function input() {
     let choices = document.querySelectorAll("button");
     choices.forEach(choice => {
@@ -161,12 +162,14 @@ function input() {
             if (event.target.classList.contains('Number') && oper === '') {
                 display.textContent += event.target.textContent;
                 num1 += event.target.textContent;
+                num1 = Number(num1);
                 console.log(num1);
             }
             else if (event.target.classList.contains('Number') && oper != '') {
                 display.textContent += event.target.textContent;
                 num2 += event.target.textContent;
-                console.log(num2);
+                num2 = Number(num2);
+                console.log(typeof(num2));
 
             }
 
